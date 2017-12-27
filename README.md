@@ -30,6 +30,18 @@ The current implementation is not, in any way, intended, nor able to generate co
 We could not emphasize enough that this project is experimental and shared for educational purposes only.
 Both the source code and the datasets are provided to foster future research in machine intelligence and are not designed for end users.
 
+## Setup
+### Prerequisites
+
+- Python 2 or 3
+- pip
+
+### Install dependencies
+
+```sh
+pip install -r  requirements.txt
+```
+
 ## Usage
 
 Prepare the data:
@@ -39,7 +51,7 @@ cd datasets
 zip -F pix2code_datasets.zip --out datasets.zip
 unzip datasets.zip
 
-cd model
+cd ../model
 
 # split training set and evaluation set while ensuring no training example in the evaluation set
 # usage: build_datasets.py <input path> <distribution (default: 6)>
