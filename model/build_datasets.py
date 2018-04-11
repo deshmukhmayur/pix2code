@@ -14,12 +14,13 @@ argv = sys.argv[1:]
 
 if len(argv) < 1:
     print("Error: not enough argument supplied:")
-    print("build_datasets.py <input path> <distribution (default: 6)>")
+    print("build_datasets.py <input path> <distribution (default: 6)> <dataset size (default: 'all')>")
     exit(0)
 else:
     input_path = argv[0]
 
 distribution = 6 if len(argv) < 2 else argv[1]
+dataset_size = None if len(argv) < 3 else argv[2]
 
 TRAINING_SET_NAME = "training_set"
 EVALUATION_SET_NAME = "eval_set"
@@ -42,6 +43,9 @@ assert training_samples_number + evaluation_samples_number == len(paths)
 print("Splitting datasets, training samples: {}, evaluation samples: {}".format(training_samples_number, evaluation_samples_number))
 
 np.random.shuffle(paths)
+
+# taking a subset of the original dataset
+paths = paths[:dataset_size]
 
 eval_set = []
 train_set = []
